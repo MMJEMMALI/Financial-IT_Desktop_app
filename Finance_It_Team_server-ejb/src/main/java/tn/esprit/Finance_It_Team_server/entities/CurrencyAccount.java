@@ -15,8 +15,8 @@ public class CurrencyAccount implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)	
 private int id;
 private int amount;
-private int sum_income;
-private int sum_expenses;
+private int sumIncome;
+private int sumExpenses;
 @ManyToOne
 private Trader traders;
 public int getId() {
@@ -31,22 +31,23 @@ public int getAmount() {
 public void setAmount(int amount) {
 	this.amount = amount;
 }
-public int getSum_income() {
-	return sum_income;
-}
-public void setSum_income(int sum_income) {
-	this.sum_income = sum_income;
-}
-public int getSum_expenses() {
-	return sum_expenses;
-}
-public void setSum_expenses(int sum_expenses) {
-	this.sum_expenses = sum_expenses;
-}
+
 public Trader getTraders() {
 	return traders;
 }
 public void setTraders(Trader traders) {
 	this.traders = traders;
+}
+public int getSumIncome() {
+	return sumIncome;
+}
+public void setSumIncome(int sumIncome) {
+	this.sumIncome = sumIncome;
+}
+public int getSumExpenses() {
+	return sumExpenses;
+}
+public void setSumExpenses(int sumExpenses) {
+	this.sumExpenses = sumExpenses;
 }
 }

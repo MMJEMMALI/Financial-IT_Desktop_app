@@ -11,9 +11,9 @@ import javax.persistence.OneToMany;
 
 @Entity
 @DiscriminatorValue(value="typeTrader")
-public class Trader extends Users implements Serializable {
+public class Trader extends User implements Serializable {
 private String scoring ;
-private String status_trader;
+private String statusTrader;
 @ManyToMany(mappedBy="traders")
 private List<OptionProduct> optionProduct;
 @OneToMany(mappedBy="traders")
@@ -25,17 +25,24 @@ public String getScoring() {
 public void setScoring(String scoring) {
 	this.scoring = scoring;
 }
-public String getStatus_trader() {
-	return status_trader;
-}
-public void setStatus_trader(String status_trader) {
-	this.status_trader = status_trader;
-}
+
 
 public List<CurrencyAccount> getCurrencyAccount() {
 	return currencyAccount;
 }
 public void setCurrencyAccount(List<CurrencyAccount> currencyAccount) {
 	this.currencyAccount = currencyAccount;
+}
+public String getStatusTrader() {
+	return statusTrader;
+}
+public void setStatusTrader(String statusTrader) {
+	this.statusTrader = statusTrader;
+}
+public List<OptionProduct> getOptionProduct() {
+	return optionProduct;
+}
+public void setOptionProduct(List<OptionProduct> optionProduct) {
+	this.optionProduct = optionProduct;
 }
 }

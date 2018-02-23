@@ -1,7 +1,7 @@
 package tn.esprit.Finance_It_Team_server.entities;
 
 
-	public enum Categoryasset{ 
+	public enum CategoryAsset{ 
 	       commoditiy,share,currency
 	  }
 
