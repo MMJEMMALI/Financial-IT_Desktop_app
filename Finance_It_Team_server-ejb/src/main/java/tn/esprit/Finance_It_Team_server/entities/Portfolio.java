@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Portfolio implements Serializable {
@@ -14,6 +15,15 @@ public class Portfolio implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
+	
+	@OneToOne
+	private Trader trader;
+	public Trader getTrader() {
+		return trader;
+	}
+	public void setTrader(Trader trader) {
+		this.trader = trader;
+	}
 
 	public int getId() {
 		return id;

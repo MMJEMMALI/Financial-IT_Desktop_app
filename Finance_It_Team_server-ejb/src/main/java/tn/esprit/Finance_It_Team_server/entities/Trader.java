@@ -7,18 +7,34 @@ import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
+//import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 @DiscriminatorValue(value="typeTrader")
 public class Trader extends User implements Serializable {
-private String scoring ;
+	
+	@OneToOne(mappedBy = "trader")
+	private Portfolio portfolio;
+	
+	
+	private String scoring ;
 private String statusTrader;
+
 @ManyToMany(mappedBy="traders")
 private List<OptionProduct> optionProduct;
-@OneToMany(mappedBy="traders")
-private List <CurrencyAccount> currencyAccount;
 
+@OneToOne(mappedBy="traders")
+private CurrencyAccount currencyAccount;
+
+
+
+public Portfolio getPortfolio() {
+	return portfolio;
+}
+public void setPortfolio(Portfolio portfolio) {
+	this.portfolio = portfolio;
+}
 public String getScoring() {
 	return scoring;
 }
@@ -26,11 +42,10 @@ public void setScoring(String scoring) {
 	this.scoring = scoring;
 }
 
-
-public List<CurrencyAccount> getCurrencyAccount() {
+public CurrencyAccount getCurrencyAccount() {
 	return currencyAccount;
 }
-public void setCurrencyAccount(List<CurrencyAccount> currencyAccount) {
+public void setCurrencyAccount(CurrencyAccount currencyAccount) {
 	this.currencyAccount = currencyAccount;
 }
 public String getStatusTrader() {

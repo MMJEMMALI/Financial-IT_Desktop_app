@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class CurrencyAccount implements Serializable{
@@ -17,7 +18,7 @@ private int id;
 private int amount;
 private int sumIncome;
 private int sumExpenses;
-@ManyToOne
+@OneToOne
 private Trader traders;
 public int getId() {
 	return id;
