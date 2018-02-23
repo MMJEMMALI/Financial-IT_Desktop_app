@@ -2,15 +2,18 @@ package tn.esprit.Finance_It_Team_server.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
+@DiscriminatorColumn(name="d_type")
 public class Users implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	
 	private int id;
 	private String first_name;
 	private String last_name;
